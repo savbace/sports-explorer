@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 async function sendRequest() {
-  const response = await fetch("/api/weatherforecast");
+  const response = await fetch("/api/players");
   const data = await response.json();
 
   console.log("FETCHED: ", data);
@@ -29,7 +29,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-        <button onClick={sendRequest}>Fetch weather</button>
+        <button onClick={sendRequest}>Fetch players</button>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
