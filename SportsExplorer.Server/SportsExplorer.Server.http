@@ -1,0 +1,6 @@
+@SportsExplorer.Server_HostAddress = http://localhost:5003
+
+GET {{SportsExplorer.Server_HostAddress}}/api/weatherforecast/
+Accept: application/json
+
+###
