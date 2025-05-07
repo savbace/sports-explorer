@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 async function sendRequest() {
-  const response = await fetch("/api/players");
+  const response = await fetch("/api/players?team=Arsenal");
   const data = await response.json();
 
   console.log("FETCHED: ", data);
