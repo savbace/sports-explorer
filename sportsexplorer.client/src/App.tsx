@@ -1,10 +1,30 @@
-import "./App.css";
+import { Container, CssBaseline } from "@mui/material";
+import { indigo } from "@mui/material/colors";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import AppHeader from "./components/AppHeader";
 import Players from "./features/Players";
+
+const defaultTheme = createTheme({
+  palette: {
+    primary: indigo,
+    secondary: {
+      main: "#96000f",
+    },
+  },
+});
 
 function App() {
   return (
     <>
-      <Players />
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <AppHeader />
+        <main>
+          <Container sx={{ py: 2 }} maxWidth="lg">
+            <Players />
+          </Container>
+        </main>
+      </ThemeProvider>
     </>
   );
 }

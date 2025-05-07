@@ -27,7 +27,7 @@ internal class FootballProvider : IFootballProvider
                 LastName = p.Name.Last,
                 Position = p.LatestPosition,
                 Birthday = DateTimeOffset.FromUnixTimeMilliseconds(p.Birth.Date.Millis).DateTime,
-                ProfilePictureUrl = $"https://resources.premierleague.com/premierleague/photos/players/40x40/{p.AltIds.Opta}.png"
+                ProfilePictureUrl = $"https://resources.premierleague.com/premierleague/photos/players/250x250/{p.AltIds.Opta}.png"
             })
             .ToList();
 
