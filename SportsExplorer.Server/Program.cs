@@ -22,6 +22,8 @@ builder.Services
         })
     .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://footballapi.pulselive.com"));
 
+builder.Services.AddScoped<IPlayersProvider, PlayersProvider>();
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
