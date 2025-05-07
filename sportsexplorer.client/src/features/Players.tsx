@@ -45,12 +45,18 @@ export default function Players() {
     populateTeams();
   }, []);
 
+  useEffect(() => {
+    if (teamId) {
+      populatePlayers(teamId);
+    }
+  }, [teamId]);
+
   const populateTeams = async () => {
     const teamsList = await fetchTeams();
     setTeams(teamsList);
   };
 
-  const populatePlayers = async () => {
+  const populatePlayers = async (teamId: string) => {
     const response = await fetch(`/api/seasons/${seasonId}/teams/${teamId}/players`);
     const playersList = await response.json();
 
@@ -66,6 +72,9 @@ export default function Players() {
       <Typography component="h4" variant="h4" align="center" color="text.primary" gutterBottom>
         Premier League 2024/25 season squads
       </Typography>
+      <Typography color="text.primary" gutterBottom sx={{ mb: 3 }}>
+        Select a team from the list to get started.
+      </Typography>
       <FormControl sx={{ mr: 2, width: 200 }}>
         <InputLabel id="team-select-label">Team</InputLabel>
         <Select labelId="team-select-label" id="team-select" value={teamId} label="Team" onChange={handleChange}>
@@ -76,9 +85,6 @@ export default function Players() {
           ))}
         </Select>
       </FormControl>
-      <Button onClick={populatePlayers} variant="outlined">
-        Fetch players
-      </Button>
       <Grid container spacing={4} sx={{ mt: 2 }}>
         {players.map((p) => (
           <Card key={p.id} sx={{ height: "100%", display: "flex", flexDirection: "column", maxWidth: 200 }}>
