@@ -18,7 +18,15 @@ public record PlayersQuery(
     bool AltIds = true,
     string Type = "player");
 
-public record Player(int Id, string LatestPosition);
+public record Player(int Id, string LatestPosition, PlayerName Name, AltIdsInfo AltIds, BirthInfo Birth);
+
+public record PlayerName(string First, string Last);
+
+public record AltIdsInfo(string Opta);
+
+public record BirthInfo(DateInfo Date);
+
+public record DateInfo(long Millis, string Label);
 
 public record PlayerResponse(List<Player> Players);
 

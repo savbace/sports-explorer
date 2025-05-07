@@ -29,6 +29,10 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <img
+          src="https://resources.premierleague.com/premierleague/photos/players/40x40/p111234.png"
+          alt="Photo for Jordan Pickford"
+        ></img>
         <button onClick={sendRequest}>Fetch players</button>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>

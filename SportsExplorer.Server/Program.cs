@@ -35,23 +35,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-app.MapGet("/api/players", async (string team, IFootballApi api) =>
-{
-    const int seasonId = 719;
-    var teamsResponse = await api.GetTeams(new TeamsQuery(seasonId));
-    var currentTeam = teamsResponse.Content.FirstOrDefault(t => t.Name.Equals(team, StringComparison.OrdinalIgnoreCase));
-    if (currentTeam == null)
-    {
-        return [];
-    }
-
-    var playerResponse = await api.GetPlayers((int)currentTeam.Id, seasonId, new PlayersQuery(seasonId));
-
-    return playerResponse.Players;
-})
-.WithName("GetPlayers");
-
 app.MapFallbackToFile("/index.html");
+
+app.AddFootballEndpoints();
 
 app.Run();

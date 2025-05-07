@@ -1,8 +1,15 @@
-@SportsExplorer.Server_HostAddress = http://localhost:5003
+@Server_HostAddress = http://localhost:5003
 
 ###
 
-GET {{SportsExplorer.Server_HostAddress}}/api/players?team=Arsenal
+GET {{Server_HostAddress}}/api/players?team=Arsenal
+Accept: application/json
+
+###
+
+###
+
+GET {{Server_HostAddress}}/api/players?team=Everton
 Accept: application/json
 
 ###
