@@ -7,7 +7,14 @@ public static class FootballEndpoints
 {
     public static void AddFootballEndpoints(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("/api/teams/{teamId:int}/seasons/{seasonId:int}/players", (int teamId, int seasonId, [FromServices] IFootballProvider provider) =>
+        var seasonEndpoints = endpoints.MapGroup("/api/seasons/{seasonId:int}");
+
+        seasonEndpoints.MapGet("/teams", (int seasonId, [FromServices] IFootballProvider provider) => {
+            return provider.GetTeams(seasonId);
+        })
+        .WithName("GetSeasonTeams");
+
+        seasonEndpoints.MapGet("/teams/{teamId:int}/players", (int seasonId, int teamId, [FromServices] IFootballProvider provider) =>
         {
             return provider.GetPlayers(teamId, seasonId);
         })

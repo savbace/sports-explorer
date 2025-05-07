@@ -2,14 +2,14 @@
 
 ###
 
-GET {{Server_HostAddress}}/api/teams/1/seasons/719/players
+GET {{Server_HostAddress}}/api/seasons/719/teams/1/players
 Accept: application/json
 
 ###
 
 ###
 
-GET {{Server_HostAddress}}/api/players?team=Everton
+GET {{Server_HostAddress}}/api/seasons/719/teams
 Accept: application/json
 
 ###

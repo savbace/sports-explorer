@@ -3,8 +3,8 @@ import { useState } from "react";
 async function fetchPlayers() {
   const teamId = 1;
   const seasonId = 719; // 2024/25
-  
-  const response = await fetch(`/api/teams/${teamId}/seasons/${seasonId}/players`);
+
+  const response = await fetch(`/api/seasons/${seasonId}/teams/${teamId}/players`);
   const data = await response.json();
 
   return data;
