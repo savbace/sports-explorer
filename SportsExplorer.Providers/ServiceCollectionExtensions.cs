@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
-using SportsExplorer.Providers.Players;
+using SportsExplorer.Providers.Football;
 
 namespace SportsExplorer.Providers;
 
@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
                 })
             .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://footballapi.pulselive.com"));
 
-        services.AddScoped<IPlayersProvider, PlayersProvider>();
+        services.AddScoped<IFootballProvider, FootballProvider>();
 
         return services;
     }

@@ -2,7 +2,7 @@
 
 ###
 
-GET {{Server_HostAddress}}/api/players?team=Arsenal
+GET {{Server_HostAddress}}/api/teams/1/seasons/719/players
 Accept: application/json
 
 ###

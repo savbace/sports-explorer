@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 async function fetchPlayers() {
-  const response = await fetch("/api/players?team=Arsenal");
+  const teamId = 1;
+  const seasonId = 719; // 2024/25
+  
+  const response = await fetch(`/api/teams/${teamId}/seasons/${seasonId}/players`);
   const data = await response.json();
 
   return data;

@@ -1,30 +1,23 @@
-namespace SportsExplorer.Providers.Players;
+namespace SportsExplorer.Providers.Football;
 
-public interface IPlayersProvider
+public interface IFootballProvider
 {
-    public Task<List<Player>> GetPlayers(string team, string season);
+    public Task<List<Player>> GetTeams(int seasonId);
+    public Task<List<Player>> GetPlayers(int teamId, int seasonId);
 }
 
-internal class PlayersProvider : IPlayersProvider
+internal class FootballProvider : IFootballProvider
 {
     private readonly IFootballApi api;
 
-    public PlayersProvider(IFootballApi api)
+    public FootballProvider(IFootballApi api)
     {
         this.api = api;
     }
 
-    public async Task<List<Player>> GetPlayers(string team, string season)
+    public async Task<List<Player>> GetPlayers(int teamId, int seasonId)
     {
-        const int seasonId = 719;
-        var teamsResponse = await api.GetTeams(new TeamsQuery(seasonId));
-        var currentTeam = teamsResponse.Content.FirstOrDefault(t => t.Name.Equals(team, StringComparison.OrdinalIgnoreCase));
-        if (currentTeam == null)
-        {
-            return [];
-        }
-
-        var playerResponse = await api.GetPlayers((int)currentTeam.Id, seasonId, new PlayersQuery(seasonId));
+        var playerResponse = await api.GetPlayers(teamId, seasonId, new PlayersQuery(seasonId));
 
         var players = playerResponse.Players
             .Select(p => new Player
@@ -39,6 +32,11 @@ internal class PlayersProvider : IPlayersProvider
             .ToList();
 
         return players;
+    }
+
+    public Task<List<Player>> GetTeams(int seasonId)
+    {
+        throw new NotImplementedException();
     }
 }
 
