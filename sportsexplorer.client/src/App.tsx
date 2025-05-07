@@ -2,7 +2,7 @@ import { Container, CssBaseline } from "@mui/material";
 import { indigo } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import AppHeader from "./components/AppHeader";
-import Players from "./features/Players";
+import Players from "./features/Teams/Players";
 
 const defaultTheme = createTheme({
   palette: {

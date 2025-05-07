@@ -12,33 +12,13 @@ import {
   type SelectChangeEvent,
 } from "@mui/material";
 import { useState } from "react";
-import { fetcher } from "../services/api";
-import useSWR from "swr";
-
-const seasonId = 719; // 2024/25
-
-interface Player {
-  id: number;
-  firstName: string;
-  lastName: string;
-  position: string;
-  birthday: string;
-  profilePictureUrl: string;
-}
-
-interface Team {
-  id: number;
-  name: string;
-}
+import { usePlayers, useTeams } from "./hooks";
 
 export default function Players() {
   const [teamId, setTeamId] = useState<string>();
 
-  const { data: teams, error, isLoading } = useSWR<Team[]>(`/api/seasons/${seasonId}/teams`, fetcher);
-  const { data: players, isLoading: loadingPlayers } = useSWR<Player[]>(
-    `/api/seasons/${seasonId}/teams/${teamId}/players`,
-    fetcher
-  );
+  const { teams, isLoading: loadingTeams } = useTeams();
+  const { players, isLoading: loadingPlayers } = usePlayers(teamId);
 
   const handleChange = (event: SelectChangeEvent) => {
     setTeamId(event.target.value);
@@ -52,7 +32,7 @@ export default function Players() {
       <Typography color="text.primary" gutterBottom sx={{ mb: 3 }}>
         Select a team from the list to get started.
       </Typography>
-      <FormControl sx={{ mr: 2, width: 200 }} disabled={isLoading}>
+      <FormControl sx={{ mr: 2, width: 200 }} disabled={loadingTeams}>
         <InputLabel id="team-select-label">Team</InputLabel>
         <Select labelId="team-select-label" id="team-select" value={teamId} label="Team" onChange={handleChange}>
           {teams?.map((t) => (
@@ -62,7 +42,7 @@ export default function Players() {
           ))}
         </Select>
       </FormControl>
-      {(isLoading || loadingPlayers) && <LinearProgress sx={{ m: 2 }} />}
+      {(loadingTeams || loadingPlayers) && <LinearProgress sx={{ m: 2 }} />}
       <Grid container spacing={4} sx={{ mt: 2 }}>
         {players?.map((p) => (
           <Card key={p.id} sx={{ height: "100%", display: "flex", flexDirection: "column", maxWidth: 200 }}>
