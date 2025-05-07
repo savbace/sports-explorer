@@ -1,4 +1,4 @@
-namespace SportsExplorer.Server.Players;
+namespace SportsExplorer.Providers.Players;
 
 public interface IPlayersProvider
 {

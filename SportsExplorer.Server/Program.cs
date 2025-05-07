@@ -1,6 +1,5 @@
-using System.Text.Json;
-using Refit;
-using SportsExplorer.Server.Players;
+using SportsExplorer.Providers;
+using SportsExplorer.Server.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,16 +12,7 @@ builder.Services.AddOpenApi();
 //     options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 // });
 
-builder.Services
-    .AddRefitClient<IFootballApi>(
-        new RefitSettings(
-            new SystemTextJsonContentSerializer(new JsonSerializerOptions(JsonSerializerDefaults.Web)))
-        {
-            UrlParameterKeyFormatter = new CamelCaseUrlParameterKeyFormatter()
-        })
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://footballapi.pulselive.com"));
-
-builder.Services.AddScoped<IPlayersProvider, PlayersProvider>();
+builder.Services.AddProvidersDependencies();
 
 var app = builder.Build();
 

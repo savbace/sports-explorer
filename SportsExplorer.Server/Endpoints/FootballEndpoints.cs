@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using SportsExplorer.Providers.Players;
 
-namespace SportsExplorer.Server.Players;
+namespace SportsExplorer.Server.Endpoints;
 
 public static class FootballEndpoints
 {

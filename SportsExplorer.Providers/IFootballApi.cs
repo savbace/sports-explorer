@@ -1,6 +1,6 @@
 using Refit;
 
-namespace SportsExplorer.Server.Players;
+namespace SportsExplorer.Providers;
 
 internal interface IFootballApi
 {

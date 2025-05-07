@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsExplorer.Server", "Sp
 EndProject
 Project("{39C614F9-8E31-45D6-9EF6-40148A22B656}") = "sportsexplorer.client", "sportsexplorer.client\sportsexplorer.client.esproj", "{0B03ECC9-6D96-456B-BA8A-438FEF78EC65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsExplorer.Providers", "SportsExplorer.Providers\SportsExplorer.Providers.csproj", "{AFD473CB-A398-43D0-9D8F-75EC7F96E762}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,5 +28,9 @@ Global
 		{0B03ECC9-6D96-456B-BA8A-438FEF78EC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B03ECC9-6D96-456B-BA8A-438FEF78EC65}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B03ECC9-6D96-456B-BA8A-438FEF78EC65}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AFD473CB-A398-43D0-9D8F-75EC7F96E762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD473CB-A398-43D0-9D8F-75EC7F96E762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD473CB-A398-43D0-9D8F-75EC7F96E762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD473CB-A398-43D0-9D8F-75EC7F96E762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
