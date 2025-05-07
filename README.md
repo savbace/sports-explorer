@@ -8,7 +8,7 @@
 
 Simple **educational** application that enables a user to select any team in the 2024/25 season of the [English Premier League](https://www.premierleague.com/) and return the squad details for that chosen team.
 
-If you're lucky you'll find the application available from the internet [here](ap-sports-ex-aeb0fxdxbrctdgch.eastus-01.azurewebsites.net).
+If you're lucky you'll find the application available from the internet [here](https://ap-sports-ex-aeb0fxdxbrctdgch.eastus-01.azurewebsites.net).
 
 ## How to start locally
 
@@ -18,13 +18,13 @@ If you're lucky you'll find the application available from the internet [here](a
 cd sportsexplorer.client/
 npm i
 ```
-1. Build ASP.NET server and start the app. Note: React application should start automatically with the server.
+3. Build ASP.NET server and start the app. Note: React application should start automatically with the server.
 ```bash
 cd ../SportsExplorer.Server/
 dotnet build
 dotnet run -lp https
 ```
-1. Go to https://localhost:5173/ in your favourite web browser.
+4. Go to https://localhost:5173/ in your favourite web browser.
 
 ## Tech parts
 
@@ -47,7 +47,7 @@ dotnet run -lp https
 #### 3rd-party football API
 The internal API of the Premier League website [page](https://www.premierleague.com/players) is used as a data source of teams and squads.
 
-**DISCLAIMER** :warning: Usage of this API can be unstable from the contract change, performance, legal or other points of view and is intented for **educational** purposes only. 
+:warning: **DISCLAIMER**: Usage of this API can be unstable from the contract change, performance, legal or other points of view and is intented for **educational** purposes only. 
 
 
 ## Potential ideas for the future
